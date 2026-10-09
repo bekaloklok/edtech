@@ -6,5 +6,5 @@ export default defineConfig({
   base: './',
   plugins: [tailwindcss()],
   resolve: { alias: { '@': path.resolve(import.meta.dirname, './src') } },
-  build: { outDir: '../../outputs/sign-tutor-demo', emptyOutDir: false },
+  build: { outDir: '..', emptyOutDir: false },
 })

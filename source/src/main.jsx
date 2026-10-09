@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ArrowUpRight, Camera, Check, CircleHelp, Hand, ImagePlus, RotateCcw, ScanLine, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Camera, Check, CircleHelp, Hand, ImagePlus, RotateCcw, ScanLine, Search, Sparkles } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -28,27 +28,75 @@ const actions = [
   { id: 'idti', word: 'Идти', category: 'Движение', example: 'Я иду домой.', url: 'https://signflow.ru/idti' },
   { id: 'pisat', word: 'Писать', category: 'Учёба', example: 'Я пишу письмо.', url: 'https://signflow.ru/pisat' },
   { id: 'kupit', word: 'Купить', category: 'Покупки', example: 'Я хочу купить воду.', url: 'https://signflow.ru/kupit' },
+  { id: 'chitat', word: 'Читать', category: 'Учёба', example: 'Я читаю книгу.', url: 'https://signflow.ru/chitat' },
+  { id: 'smotret', word: 'Смотреть', category: 'Каждый день', example: 'Давай посмотрим фильм.', url: 'https://signflow.ru/smotret' },
+  { id: 'govorit', word: 'Говорить', category: 'Общение', example: 'Можно с тобой поговорить?', url: 'https://signflow.ru/govorit' },
+  { id: 'slushat', word: 'Слушать', category: 'Общение', example: 'Я внимательно слушаю.', url: 'https://signflow.ru/slushat' },
+  { id: 'rabotat', word: 'Работать', category: 'Учёба и работа', example: 'Я сегодня работаю.', url: 'https://signflow.ru/rabotat' },
+  { id: 'uchitsya', word: 'Учиться', category: 'Учёба и работа', example: 'Я учусь каждый день.', url: 'https://signflow.ru/uchitsya' },
+  { id: 'pomogat', word: 'Помогать', category: 'Общение', example: 'Я могу тебе помочь.', url: 'https://signflow.ru/pomogat' },
+  { id: 'zhdat', word: 'Ждать', category: 'Каждый день', example: 'Я буду ждать здесь.', url: 'https://signflow.ru/zhdat' },
+  { id: 'igrat', word: 'Играть', category: 'Досуг', example: 'Дети любят играть.', url: 'https://signflow.ru/igrat' },
+  { id: 'gotovit', word: 'Готовить', category: 'Каждый день', example: 'Я готовлю ужин.', url: 'https://signflow.ru/gotovit' },
+  { id: 'risovat', word: 'Рисовать', category: 'Досуг', example: 'Я люблю рисовать.', url: 'https://signflow.ru/risovat' },
+  { id: 'lyubit', word: 'Любить', category: 'Общение', example: 'Я люблю свою семью.', url: 'https://signflow.ru/lyubit' },
 ]
+
+const words = [
+  { id: 'privet', word: 'Привет', category: 'Знакомство', example: 'Привет! Рад тебя видеть.', url: 'https://signflow.ru/privet' },
+  { id: 'zdravstvuyte', word: 'Здравствуйте', category: 'Знакомство', example: 'Здравствуйте, как дела?', url: 'https://signflow.ru/zdravstvuyte' },
+  { id: 'poka', word: 'Пока', category: 'Знакомство', example: 'Пока, до встречи!', url: 'https://signflow.ru/poka' },
+  { id: 'spasibo', word: 'Спасибо', category: 'Вежливость', example: 'Спасибо за помощь.', url: 'https://signflow.ru/spasibo' },
+  { id: 'pozhaluysta', word: 'Пожалуйста', category: 'Вежливость', example: 'Пожалуйста, проходи.', url: 'https://signflow.ru/pozhaluysta' },
+  { id: 'izvinite', word: 'Извините', category: 'Вежливость', example: 'Извините, где магазин?', url: 'https://signflow.ru/izvinite' },
+  { id: 'da', word: 'Да', category: 'Общение', example: 'Да, я согласен.', url: 'https://signflow.ru/da' },
+  { id: 'net', word: 'Нет', category: 'Общение', example: 'Нет, спасибо.', url: 'https://signflow.ru/net' },
+  { id: 'khorosho', word: 'Хорошо', category: 'Общение', example: 'Хорошо, договорились.', url: 'https://signflow.ru/khorosho' },
+  { id: 'gde', word: 'Где', category: 'Общение', example: 'Где находится школа?', url: 'https://signflow.ru/gde' },
+  { id: 'chto', word: 'Что', category: 'Общение', example: 'Что это?', url: 'https://signflow.ru/chto' },
+  { id: 'drug', word: 'Друг', category: 'Люди', example: 'Это мой друг.', url: 'https://signflow.ru/drug' },
+  { id: 'semya', word: 'Семья', category: 'Люди', example: 'Моя семья дома.', url: 'https://signflow.ru/semya' },
+  { id: 'mama', word: 'Мама', category: 'Люди', example: 'Мама скоро придёт.', url: 'https://signflow.ru/mama' },
+  { id: 'papa', word: 'Папа', category: 'Люди', example: 'Папа на работе.', url: 'https://signflow.ru/papa' },
+  { id: 'pomoshch', word: 'Помощь', category: 'Важное', example: 'Мне нужна помощь.', url: 'https://signflow.ru/pomoshch' },
+  { id: 'vrach', word: 'Врач', category: 'Важное', example: 'Мне нужен врач.', url: 'https://signflow.ru/vrach' },
+  { id: 'shkola', word: 'Школа', category: 'Места', example: 'Где находится школа?', url: 'https://signflow.ru/shkola' },
+  { id: 'magazin', word: 'Магазин', category: 'Места', example: 'Магазин рядом.', url: 'https://signflow.ru/magazin' },
+  { id: 'avtobus', word: 'Автобус', category: 'Места', example: 'Когда придёт автобус?', url: 'https://signflow.ru/avtobus' },
+]
+
+const vocabulary = {
+  actions: { items: actions, title: 'Учись показывать действия.', intro: 'Повседневные глаголы для общения, учёбы и досуга. Посмотри видео, повтори жест и используй его в короткой фразе.', eyebrow: 'Жесты действий', heading: 'Действия на каждый день' },
+  words: { items: words, title: 'Начни говорить жестами.', intro: 'Приветствия, важные слова и простые вопросы. Выбери тему, посмотри жест и попробуй использовать его в разговоре.', eyebrow: 'Словарь слов', heading: 'Слова для первого разговора' },
+}
+
+function readStudied(key, items) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(key) || '[]')
+    return Array.isArray(saved) ? saved.filter((id) => items.some((item) => item.id === id)) : []
+  } catch { return [] }
+}
 
 function App() {
   const [selected, setSelected] = useState(0)
   const [activeTab, setActiveTab] = useState('alphabet')
-  const [studiedActions, setStudiedActions] = useState(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem('fingram-studied-actions') || '[]')
-      return Array.isArray(saved) ? saved.filter((id) => actions.some((action) => action.id === id)) : []
-    } catch { return [] }
-  })
+  const [studiedActions, setStudiedActions] = useState(() => readStudied('fingram-studied-actions', actions))
+  const [studiedWords, setStudiedWords] = useState(() => readStudied('fingram-studied-words', words))
+  const [search, setSearch] = useState('')
+  const [category, setCategory] = useState('Все')
   const selectedLetter = letters[selected]
   const selectedImage = imageNames[selected]
   const chooseTab = (tab) => {
-    window.dispatchEvent(new Event(tab === 'actions' ? 'pause-letter-camera' : 'resume-letter-page'))
+    window.dispatchEvent(new Event(tab === 'alphabet' ? 'resume-letter-page' : 'pause-letter-camera'))
     setActiveTab(tab)
+    setSearch('')
+    setCategory('Все')
   }
-  const toggleStudied = (id) => {
-    setStudiedActions((current) => {
+  const toggleStudied = (tab, id) => {
+    const setStudied = tab === 'actions' ? setStudiedActions : setStudiedWords
+    setStudied((current) => {
       const next = current.includes(id) ? current.filter((item) => item !== id) : [...current, id]
-      localStorage.setItem('fingram-studied-actions', JSON.stringify(next))
+      try { localStorage.setItem('fingram-studied-' + tab, JSON.stringify(next)) } catch { /* Storage may be unavailable. */ }
       return next
     })
   }
@@ -65,15 +113,16 @@ function App() {
       <header className="topbar">
         <div className="brand"><span className="brand-mark"><Hand size={20} strokeWidth={2.2} /></span>Fingram</div>
         <div className="topbar-right">
-          <span className="topbar-note">Тренажёр русского дактиля</span>
-          <Badge variant="outline">{activeTab === 'alphabet' ? 'Алфавит · 33 буквы' : 'Действия · 6 жестов'}</Badge>
+          <span className="topbar-note">Изучай русский жестовый язык</span>
+          <Badge variant="outline">{activeTab === 'alphabet' ? 'Алфавит · 33 буквы' : activeTab === 'actions' ? 'Действия · ' + actions.length + ' жестов' : 'Слова · ' + words.length + ' жестов'}</Badge>
         </div>
       </header>
 
       <main>
         <nav className="course-tabs" role="tablist" aria-label="Разделы обучения">
           <button id="alphabet-tab" type="button" role="tab" aria-selected={activeTab === 'alphabet'} aria-controls="alphabet-panel" className={activeTab === 'alphabet' ? 'active' : ''} onClick={() => chooseTab('alphabet')}>Алфавит <span>33 буквы</span></button>
-          <button id="actions-tab" type="button" role="tab" aria-selected={activeTab === 'actions'} aria-controls="actions-panel" className={activeTab === 'actions' ? 'active' : ''} onClick={() => chooseTab('actions')}>Действия <span>6 жестов</span></button>
+          <button id="actions-tab" type="button" role="tab" aria-selected={activeTab === 'actions'} aria-controls="actions-panel" className={activeTab === 'actions' ? 'active' : ''} onClick={() => chooseTab('actions')}>Действия <span>{actions.length} жестов</span></button>
+          <button id="words-tab" type="button" role="tab" aria-selected={activeTab === 'words'} aria-controls="words-panel" className={activeTab === 'words' ? 'active' : ''} onClick={() => chooseTab('words')}>Слова <span>{words.length} жестов</span></button>
         </nav>
         <div id="alphabet-panel" role="tabpanel" aria-labelledby="alphabet-tab" hidden={activeTab !== 'alphabet'}>
         <section className="intro">
@@ -155,40 +204,64 @@ function App() {
         </section>
         </div>
 
-        <div id="actions-panel" role="tabpanel" aria-labelledby="actions-tab" hidden={activeTab !== 'actions'}>
-          <section className="intro actions-intro">
-            <div className="intro-copy">
-              <div className="eyebrow"><Sparkles size={15} /> Первые слова на жестовом языке</div>
-              <h1>Учись показывать действия.</h1>
-              <p>Начни с шести глаголов, которые встречаются каждый день. Открой видео, повтори жест несколько раз и отметь слово как изученное.</p>
-            </div>
-            <div className="intro-side"><Check size={16} /> {studiedActions.length} из {actions.length} изучено</div>
-          </section>
-          <section className="actions-guide" aria-label="Как заниматься">
-            <div><span>1</span><strong>Посмотри видео</strong><p>Обрати внимание на обе руки, направление и движение.</p></div>
-            <div><span>2</span><strong>Повтори жест</strong><p>Покажи его медленно, затем в обычном темпе.</p></div>
-            <div><span>3</span><strong>Используй в примере</strong><p>Свяжи жест с короткой фразой и отметь как изученный.</p></div>
-          </section>
-          <div className="actions-heading"><div><span className="eyebrow">Словарь действий</span><h2>Начни с этих жестов</h2></div><Badge variant="secondary">{studiedActions.length} / {actions.length} изучено</Badge></div>
-          <div className="actions-grid">
-            {actions.map((action, index) => {
-              const studied = studiedActions.includes(action.id)
-              return <Card className={`action-card ${studied ? 'studied' : ''}`} key={action.id}><CardContent className="action-card-body">
-                <div className="action-card-top"><span className="action-number">{String(index + 1).padStart(2, '0')}</span><Badge variant="secondary">{action.category}</Badge></div>
-                <h3>{action.sign || action.word}</h3>
-                <p className="action-example">«{action.example}»</p>
-                <div className="action-card-buttons">
-                  <a className="action-video" href={action.url} target="_blank" rel="noopener noreferrer" aria-label={`Смотреть видео жеста ${action.sign || action.word} в словаре Signflow`}>Смотреть жест <ArrowUpRight size={16} /></a>
-                  <button className={`action-check ${studied ? 'done' : ''}`} type="button" aria-pressed={studied} onClick={() => toggleStudied(action.id)}><Check size={15} /> {studied ? 'Изучено' : 'Отметить'}</button>
+        {Object.entries(vocabulary).map(([tab, config]) => {
+          const studied = tab === 'actions' ? studiedActions : studiedWords
+          const categories = ['Все', ...new Set(config.items.map((item) => item.category))]
+          const currentSearch = activeTab === tab ? search : ''
+          const currentCategory = activeTab === tab ? category : 'Все'
+          const visibleItems = config.items.filter((item) =>
+            (currentCategory === 'Все' || item.category === currentCategory) &&
+            (item.word + ' ' + item.example).toLocaleLowerCase('ru').includes(currentSearch.trim().toLocaleLowerCase('ru'))
+          )
+          return (
+            <div id={tab + '-panel'} role="tabpanel" aria-labelledby={tab + '-tab'} hidden={activeTab !== tab} key={tab}>
+              <section className="intro actions-intro">
+                <div className="intro-copy">
+                  <div className="eyebrow"><Sparkles size={15} /> {config.eyebrow}</div>
+                  <h1>{config.title}</h1>
+                  <p>{config.intro}</p>
                 </div>
-              </CardContent></Card>
-            })}
-          </div>
-          <p className="actions-note">Видео открываются в <a href="https://signflow.ru/about" target="_blank" rel="noopener noreferrer">словаре Signflow</a>. Жесты слов отличаются от букв дактильного алфавита. Проверка действий камерой пока не доступна; отметка «Изучено» ставится вручную.</p>
-        </div>
+                <div className="intro-side"><Check size={16} /> {studied.length} из {config.items.length} изучено</div>
+              </section>
+              <section className="actions-guide" aria-label="Как заниматься">
+                <div><span>1</span><strong>Посмотри видео</strong><p>Обрати внимание на обе руки, направление и движение.</p></div>
+                <div><span>2</span><strong>Повтори жест</strong><p>Покажи его медленно, затем в обычном темпе.</p></div>
+                <div><span>3</span><strong>Используй в примере</strong><p>Свяжи жест с короткой фразой и отметь как изученный.</p></div>
+              </section>
+              <div className="actions-heading">
+                <div><span className="eyebrow">{config.eyebrow}</span><h2>{config.heading}</h2></div>
+                <Badge variant="secondary">{studied.length} / {config.items.length} изучено</Badge>
+              </div>
+              <div className="vocab-controls">
+                <label className="vocab-search"><Search size={17} /><input type="search" value={currentSearch} onChange={(event) => setSearch(event.target.value)} placeholder="Найти жест или пример" aria-label={'Поиск в разделе ' + (tab === 'actions' ? 'действий' : 'слов')} /></label>
+                <span className="vocab-count">Найдено: {visibleItems.length}</span>
+              </div>
+              <div className="vocab-categories" aria-label="Темы">
+                {categories.map((item) => <button type="button" className={'category-chip' + (currentCategory === item ? ' active' : '')} aria-pressed={currentCategory === item} onClick={() => setCategory(item)} key={item}>{item}</button>)}
+              </div>
+              {visibleItems.length ? (
+                <div className="actions-grid">
+                  {visibleItems.map((item) => {
+                    const isStudied = studied.includes(item.id)
+                    return <Card className={'action-card' + (isStudied ? ' studied' : '')} key={item.id}><CardContent className="action-card-body">
+                      <div className="action-card-top"><span className="action-number">{String(config.items.indexOf(item) + 1).padStart(2, '0')}</span><Badge variant="secondary">{item.category}</Badge></div>
+                      <h3>{item.word}</h3>
+                      <p className="action-example">«{item.example}»</p>
+                      <div className="action-card-buttons">
+                        <a className="action-video" href={item.url} target="_blank" rel="noopener noreferrer" aria-label={'Смотреть видео жеста ' + item.word + ' в словаре Signflow'}>Смотреть жест <ArrowUpRight size={16} /></a>
+                        <button className={'action-check' + (isStudied ? ' done' : '')} type="button" aria-pressed={isStudied} onClick={() => toggleStudied(tab, item.id)}><Check size={15} /> {isStudied ? 'Изучено' : 'Отметить'}</button>
+                      </div>
+                    </CardContent></Card>
+                  })}
+                </div>
+              ) : <p className="vocab-empty">Жесты не найдены. Попробуй другое слово или выбери «Все».</p>}
+              <p className="actions-note">Видео открываются в <a href="https://signflow.ru/about" target="_blank" rel="noopener noreferrer">словаре Signflow</a>. Жесты слов отличаются от букв дактильного алфавита. Проверка слов и действий камерой пока не доступна; отметка «Изучено» ставится вручную.</p>
+            </div>
+          )
+        })}
       </main>
       <Separator />
-      <footer>Fingram · рисунки алфавита: <a href="https://abvgdee.ru/alfavity/gluhonemyh" target="_blank" rel="noreferrer">abvgdee.ru</a> · модель букв: <a href="https://github.com/Blockbattle/RSL-Dataset" target="_blank" rel="noreferrer">RSL-Dataset</a> · видео действий: <a href="https://signflow.ru/about" target="_blank" rel="noreferrer">Signflow</a></footer>
+      <footer>Fingram · рисунки алфавита: <a href="https://abvgdee.ru/alfavity/gluhonemyh" target="_blank" rel="noreferrer">abvgdee.ru</a> · модель букв: <a href="https://github.com/Blockbattle/RSL-Dataset" target="_blank" rel="noreferrer">RSL-Dataset</a> · видео слов и действий: <a href="https://signflow.ru/about" target="_blank" rel="noreferrer">Signflow</a></footer>
     </div>
   )
 }

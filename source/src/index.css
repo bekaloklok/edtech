@@ -213,3 +213,21 @@ footer { padding: 0 0 26px; color: #8c949a; font-size: 11px; }
   .alphabet-grid { grid-template-columns: repeat(7, 1fr); gap: 6px; }
   .alphabet-key strong { font-size: 22px; }
 }
+
+.vocab-controls { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 18px 0 13px; }
+.vocab-search { display: flex; align-items: center; gap: 10px; width: min(100%, 410px); height: 42px; padding: 0 13px; background: #fff; border: 1px solid var(--border); border-radius: 9px; color: #73818a; }
+.vocab-search:focus-within { border-color: #5e9777; box-shadow: 0 0 0 2px #5e977722; }
+.vocab-search input { width: 100%; height: 100%; border: 0; outline: 0; background: transparent; color: var(--foreground); font-size: 13px; }
+.vocab-search input::placeholder { color: #929ca3; }
+.vocab-count { color: var(--muted-foreground); font-size: 12px; white-space: nowrap; }
+.vocab-categories { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.category-chip { min-height: 33px; padding: 0 12px; border: 1px solid var(--border); border-radius: 7px; background: #fff; color: #5d6b73; font-size: 12px; font-weight: 700; }
+.category-chip:hover { background: #f3f7f4; border-color: #b9d1c0; }
+.category-chip.active { background: #eaf4ed; border-color: #b7d4c0; color: #2f6e4c; }
+.category-chip:focus-visible, .vocab-search input:focus-visible { outline: 2px solid #4d9670; outline-offset: 2px; }
+.vocab-empty { margin: 0; padding: 34px 20px; border: 1px dashed #ccd7d1; border-radius: 10px; text-align: center; color: var(--muted-foreground); font-size: 13px; background: #fff; }
+@media (max-width: 700px) {
+  .vocab-controls { align-items: stretch; flex-direction: column; gap: 8px; }
+  .vocab-search { width: 100%; }
+  .vocab-count { align-self: flex-end; }
+}
