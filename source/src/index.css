@@ -231,3 +231,7 @@ footer { padding: 0 0 26px; color: #8c949a; font-size: 11px; }
   .vocab-search { width: 100%; }
   .vocab-count { align-self: flex-end; }
 }
+.vocab-more { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 44px; margin-top: 16px; border: 1px solid var(--border); border-radius: 9px; background: #fff; color: #263a30; font-size: 13px; font-weight: 750; }
+.vocab-more:hover { border-color: #b7d4c0; background: #f3f8f4; }
+.vocab-more:focus-visible { outline: 2px solid #4d9670; outline-offset: 2px; }
+.vocab-more span { color: #7e8b83; font-size: 11px; font-weight: 600; }

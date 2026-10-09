@@ -40,6 +40,38 @@ const actions = [
   { id: 'gotovit', word: 'Готовить', category: 'Каждый день', example: 'Я готовлю ужин.', url: 'https://signflow.ru/gotovit' },
   { id: 'risovat', word: 'Рисовать', category: 'Досуг', example: 'Я люблю рисовать.', url: 'https://signflow.ru/risovat' },
   { id: 'lyubit', word: 'Любить', category: 'Общение', example: 'Я люблю свою семью.', url: 'https://signflow.ru/lyubit' },
+  { id: 'begat', word: 'Бегать', category: 'Движение', example: 'Я бегаю по утрам.', url: 'https://signflow.ru/begat' },
+  { id: 'sidet', word: 'Сидеть', category: 'Движение', example: 'Я сижу здесь.', url: 'https://signflow.ru/sidet' },
+  { id: 'stoyat', word: 'Стоять', category: 'Движение', example: 'Я стою у двери.', url: 'https://signflow.ru/stoyat' },
+  { id: 'lezhat', word: 'Лежать', category: 'Каждый день', example: 'Книга лежит на столе.', url: 'https://signflow.ru/lezhat' },
+  { id: 'saditsya', word: 'Садиться', category: 'Движение', example: 'Пожалуйста, садись.', url: 'https://signflow.ru/saditsya' },
+  { id: 'prikhodit', word: 'Приходить', category: 'Движение', example: 'Он приходит вовремя.', url: 'https://signflow.ru/prikhodit' },
+  { id: 'otvechat', word: 'Отвечать', category: 'Общение', example: 'Ответь на вопрос.', url: 'https://signflow.ru/otvechat' },
+  { id: 'sprashivat', word: 'Спрашивать', category: 'Общение', example: 'Можно спросить?', url: 'https://signflow.ru/sprashivat' },
+  { id: 'pokazyvat', word: 'Показывать', category: 'Общение', example: 'Покажи мне дорогу.', url: 'https://signflow.ru/pokazyvat' },
+  { id: 'dumat', word: 'Думать', category: 'Мысли', example: 'Мне нужно подумать.', url: 'https://signflow.ru/dumat' },
+  { id: 'znat', word: 'Знать', category: 'Мысли', example: 'Я знаю ответ.', url: 'https://signflow.ru/znat' },
+  { id: 'ponimat', word: 'Понимать', category: 'Мысли', example: 'Я тебя понимаю.', url: 'https://signflow.ru/ponimat' },
+  { id: 'pomnit', word: 'Помнить', category: 'Мысли', example: 'Я помню этот день.', url: 'https://signflow.ru/pomnit' },
+  { id: 'zabyvat', word: 'Забывать', category: 'Мысли', example: 'Не забывай книгу.', url: 'https://signflow.ru/zabyvat' },
+  { id: 'videt', word: 'Видеть', category: 'Каждый день', example: 'Я вижу тебя.', url: 'https://signflow.ru/videt' },
+  { id: 'iskat', word: 'Искать', category: 'Каждый день', example: 'Я ищу ключи.', url: 'https://signflow.ru/iskat' },
+  { id: 'nakhodit', word: 'Находить', category: 'Каждый день', example: 'Я нахожу нужную страницу.', url: 'https://signflow.ru/nakhodit' },
+  { id: 'dat', word: 'Дать', category: 'Каждый день', example: 'Дай мне книгу.', url: 'https://signflow.ru/dat' },
+  { id: 'otkryt', word: 'Открыть', category: 'Каждый день', example: 'Открой дверь.', url: 'https://signflow.ru/otkryt' },
+  { id: 'zakryt', word: 'Закрыть', category: 'Каждый день', example: 'Закрой окно.', url: 'https://signflow.ru/zakryt' },
+  { id: 'nachat', word: 'Начать', category: 'Каждый день', example: 'Начнём урок.', url: 'https://signflow.ru/nachat' },
+  { id: 'zakonchit', word: 'Закончить', category: 'Каждый день', example: 'Пора закончить работу.', url: 'https://signflow.ru/zakonchit' },
+  { id: 'delat', word: 'Делать', category: 'Каждый день', example: 'Что ты делаешь?', url: 'https://signflow.ru/delat' },
+  { id: 'ubirat', word: 'Убирать', category: 'Каждый день', example: 'Я убираю комнату.', url: 'https://signflow.ru/ubirat' },
+  { id: 'odevat', word: 'Одевать', category: 'Каждый день', example: 'Я одеваю ребёнка.', url: 'https://signflow.ru/odevat' },
+  { id: 'est', word: 'Есть', category: 'Каждый день', example: 'Я хочу есть.', url: 'https://signflow.ru/est' },
+  { id: 'platit', word: 'Платить', category: 'Покупки', example: 'Я плачу за билет.', url: 'https://signflow.ru/platit' },
+  { id: 'prodavat', word: 'Продавать', category: 'Покупки', example: 'Они продают книги.', url: 'https://signflow.ru/prodavat' },
+  { id: 'vstrechat', word: 'Встречать', category: 'Общение', example: 'Я встречаю друга.', url: 'https://signflow.ru/vstrechat' },
+  { id: 'ulybatsya', word: 'Улыбаться', category: 'Общение', example: 'Она улыбается.', url: 'https://signflow.ru/ulybatsya' },
+  { id: 'smeyatsya', word: 'Смеяться', category: 'Общение', example: 'Мы смеёмся вместе.', url: 'https://signflow.ru/smeyatsya' },
+  { id: 'pet', word: 'Петь', category: 'Досуг', example: 'Я люблю петь.', url: 'https://signflow.ru/pet' },
 ]
 
 const words = [
@@ -63,6 +95,36 @@ const words = [
   { id: 'shkola', word: 'Школа', category: 'Места', example: 'Где находится школа?', url: 'https://signflow.ru/shkola' },
   { id: 'magazin', word: 'Магазин', category: 'Места', example: 'Магазин рядом.', url: 'https://signflow.ru/magazin' },
   { id: 'avtobus', word: 'Автобус', category: 'Места', example: 'Когда придёт автобус?', url: 'https://signflow.ru/avtobus' },
+  { id: 'kto', word: 'Кто', category: 'Вопросы', example: 'Кто это?', url: 'https://signflow.ru/kto' },
+  { id: 'kogda', word: 'Когда', category: 'Вопросы', example: 'Когда начнём?', url: 'https://signflow.ru/kogda' },
+  { id: 'pochemu', word: 'Почему', category: 'Вопросы', example: 'Почему ты грустишь?', url: 'https://signflow.ru/pochemu' },
+  { id: 'kak', word: 'Как', category: 'Вопросы', example: 'Как дела?', url: 'https://signflow.ru/kak' },
+  { id: 'mozhno', word: 'Можно', category: 'Общение', example: 'Можно войти?', url: 'https://signflow.ru/mozhno' },
+  { id: 'imya', word: 'Имя', category: 'Знакомство', example: 'Моё имя — Алия.', url: 'https://signflow.ru/imya' },
+  { id: 'vremya', word: 'Время', category: 'Время', example: 'Сколько сейчас времени?', url: 'https://signflow.ru/vremya' },
+  { id: 'utro', word: 'Утро', category: 'Время', example: 'Доброе утро!', url: 'https://signflow.ru/utro' },
+  { id: 'vecher', word: 'Вечер', category: 'Время', example: 'Добрый вечер!', url: 'https://signflow.ru/vecher' },
+  { id: 'vchera', word: 'Вчера', category: 'Время', example: 'Вчера мы встречались.', url: 'https://signflow.ru/vchera' },
+  { id: 'seychas', word: 'Сейчас', category: 'Время', example: 'Я приду сейчас.', url: 'https://signflow.ru/seychas' },
+  { id: 'skoro', word: 'Скоро', category: 'Время', example: 'Скоро начнётся урок.', url: 'https://signflow.ru/skoro' },
+  { id: 'brat', word: 'Брат', category: 'Люди', example: 'Это мой брат.', url: 'https://signflow.ru/brat' },
+  { id: 'sestra', word: 'Сестра', category: 'Люди', example: 'Моя сестра учится.', url: 'https://signflow.ru/sestra' },
+  { id: 'babushka', word: 'Бабушка', category: 'Люди', example: 'Бабушка дома.', url: 'https://signflow.ru/babushka' },
+  { id: 'dedushka', word: 'Дедушка', category: 'Люди', example: 'Дедушка любит читать.', url: 'https://signflow.ru/dedushka' },
+  { id: 'deti', word: 'Дети', category: 'Люди', example: 'Дети играют.', url: 'https://signflow.ru/deti' },
+  { id: 'park', word: 'Парк', category: 'Места', example: 'Пойдём в парк.', url: 'https://signflow.ru/park' },
+  { id: 'biblioteka', word: 'Библиотека', category: 'Места', example: 'Библиотека рядом.', url: 'https://signflow.ru/biblioteka' },
+  { id: 'metro', word: 'Метро', category: 'Места', example: 'Я еду на метро.', url: 'https://signflow.ru/metro' },
+  { id: 'ostanovka', word: 'Остановка', category: 'Места', example: 'Где остановка?', url: 'https://signflow.ru/ostanovka' },
+  { id: 'vokzal', word: 'Вокзал', category: 'Места', example: 'Вокзал недалеко.', url: 'https://signflow.ru/vokzal' },
+  { id: 'kniga', word: 'Книга', category: 'Учёба и быт', example: 'Это моя книга.', url: 'https://signflow.ru/kniga' },
+  { id: 'telefon', word: 'Телефон', category: 'Учёба и быт', example: 'Где мой телефон?', url: 'https://signflow.ru/telefon' },
+  { id: 'stol', word: 'Стол', category: 'Учёба и быт', example: 'Книга лежит на столе.', url: 'https://signflow.ru/stol' },
+  { id: 'dver', word: 'Дверь', category: 'Учёба и быт', example: 'Закрой дверь.', url: 'https://signflow.ru/dver' },
+  { id: 'khleb', word: 'Хлеб', category: 'Еда', example: 'Купи хлеб.', url: 'https://signflow.ru/khleb' },
+  { id: 'moloko', word: 'Молоко', category: 'Еда', example: 'Мне нужно молоко.', url: 'https://signflow.ru/moloko' },
+  { id: 'chay', word: 'Чай', category: 'Еда', example: 'Будешь чай?', url: 'https://signflow.ru/chay' },
+  { id: 'yabloko', word: 'Яблоко', category: 'Еда', example: 'Я хочу яблоко.', url: 'https://signflow.ru/yabloko' },
 ]
 
 const vocabulary = {
@@ -84,6 +146,7 @@ function App() {
   const [studiedWords, setStudiedWords] = useState(() => readStudied('fingram-studied-words', words))
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('Все')
+  const [visibleCount, setVisibleCount] = useState(12)
   const selectedLetter = letters[selected]
   const selectedImage = imageNames[selected]
   const chooseTab = (tab) => {
@@ -233,15 +296,15 @@ function App() {
                 <Badge variant="secondary">{studied.length} / {config.items.length} изучено</Badge>
               </div>
               <div className="vocab-controls">
-                <label className="vocab-search"><Search size={17} /><input type="search" value={currentSearch} onChange={(event) => setSearch(event.target.value)} placeholder="Найти жест или пример" aria-label={'Поиск в разделе ' + (tab === 'actions' ? 'действий' : 'слов')} /></label>
-                <span className="vocab-count">Найдено: {visibleItems.length}</span>
+                <label className="vocab-search"><Search size={17} /><input type="search" value={currentSearch} onChange={(event) => { setSearch(event.target.value); setVisibleCount(12) }} placeholder="Найти жест или пример" aria-label={'Поиск в разделе ' + (tab === 'actions' ? 'действий' : 'слов')} /></label>
+                <span className="vocab-count">Показано: {Math.min(visibleCount, visibleItems.length)} из {visibleItems.length}</span>
               </div>
               <div className="vocab-categories" aria-label="Темы">
-                {categories.map((item) => <button type="button" className={'category-chip' + (currentCategory === item ? ' active' : '')} aria-pressed={currentCategory === item} onClick={() => setCategory(item)} key={item}>{item}</button>)}
+                {categories.map((item) => <button type="button" className={'category-chip' + (currentCategory === item ? ' active' : '')} aria-pressed={currentCategory === item} onClick={() => { setCategory(item); setVisibleCount(12) }} key={item}>{item}</button>)}
               </div>
               {visibleItems.length ? (
                 <div className="actions-grid">
-                  {visibleItems.map((item) => {
+                  {visibleItems.slice(0, visibleCount).map((item) => {
                     const isStudied = studied.includes(item.id)
                     return <Card className={'action-card' + (isStudied ? ' studied' : '')} key={item.id}><CardContent className="action-card-body">
                       <div className="action-card-top"><span className="action-number">{String(config.items.indexOf(item) + 1).padStart(2, '0')}</span><Badge variant="secondary">{item.category}</Badge></div>
@@ -255,6 +318,7 @@ function App() {
                   })}
                 </div>
               ) : <p className="vocab-empty">Жесты не найдены. Попробуй другое слово или выбери «Все».</p>}
+              {visibleItems.length > visibleCount && <button className="vocab-more" type="button" onClick={() => setVisibleCount((count) => count + 12)}>Показать ещё <span>Осталось {visibleItems.length - visibleCount}</span></button>}
               <p className="actions-note">Видео открываются в <a href="https://signflow.ru/about" target="_blank" rel="noopener noreferrer">словаре Signflow</a>. Жесты слов отличаются от букв дактильного алфавита. Проверка слов и действий камерой пока не доступна; отметка «Изучено» ставится вручную.</p>
             </div>
           )
