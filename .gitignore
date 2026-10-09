@@ -1,0 +1,5 @@
+data/
+source/node_modules/
+training/*.npz
+**/__pycache__/
+*.log
